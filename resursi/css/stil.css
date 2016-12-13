@@ -1,0 +1,632 @@
+/*----------------------------------*/
+/* OSNOVNA PODEŠAVANJA*/
+/*----------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/*----------------------------------*/
+/* VIŠEKRATNE KOMPONENTE*/
+/*----------------------------------*/
+
+h1,h2,h3{
+    text-transform: uppercase;
+    font-weight:300;
+}
+
+h1{
+    font-size: 440%;
+    color:#fff;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: -3px 0 #8e44ad, 0 3px #8e44ad, 3px 0 #8e44ad, 0 -3px #8e44ad;
+}
+
+h2{
+    font-size: 200%;
+    font-weight: bold;
+    color: #8e44ad;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: heroFont;
+}
+
+h2:after{
+    content: ' ';
+    display: block;
+    width:100px;
+    height: 2px;
+    background-color: #555;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3{
+    font-size: 140%;
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+}
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section{
+    padding: 70px 0;
+}
+
+@font-face{
+    font-family: heroFont;
+    src:url(../../vendori/font/AlexBrush-Regular.ttf);
+}
+
+@font-face{
+    font-family: pisaniFont;
+    src:url(../../vendori/font/domestic-manners.regular.ttf);
+}
+
+/*----------------------------------*/
+/* PARAGRAFI*/
+/*----------------------------------*/
+.tekst-paragraf{
+    font-size: 120%;
+    line-height: 160%;
+}
+
+/*----------------------------------*/
+/* DUGMAD*/
+/*----------------------------------*/
+.dugme{
+    font-weight: 600;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin-right: 20px;
+    animation-delay: 2s;
+    color: white;
+}
+
+.dugme-puno:link, .dugme-puno:visited{
+    background-color: #8e44ad;
+    border: 2px solid #fff;    
+    transition: background-color 0.5s;
+    font-family: 'Lato',sans-serif;
+    animation: dugmeAnimacija 3s linear;
+}
+
+.dugme-puno:hover, .dugme-puno:active{
+    background-color:#974ab8;
+}
+
+.dugme-prazno:link, .dugme-prazno:visited{
+    border: 2px solid #fff;
+    transition: background 0.5s, color 0.5s; 
+    font-family: 'Lato',sans-serif;
+    animation: dugmeAnimacija 3s linear;
+}
+
+.dugme-prazno:hover, .dugme-prazno:active{
+    background-color: #8e44ad;
+}
+
+/*----------------------------------*/
+/* HEADER*/
+/*----------------------------------*/
+
+header{
+    background-image: linear-gradient(rgba(142, 68, 173,0.4),rgba(142, 68, 173,0.4)),url(cssslike/heroslika.jpg);
+    height: 100vh;
+    background-size: cover;
+   
+}
+
+.logo-slika{
+    float: left;
+    height: 65px;
+    display:none;
+    margin-left: 50px;
+    margin-top: 12px;
+}
+
+/* NAVIGACIJA I LEPLJIVA NAVIGACIJA*/
+
+.navigacija, .lepljiva-navigacija{
+    list-style-type: none;
+    float: right;
+    margin-top: 50px;
+    animation: navAnimacija 2s linear;
+}
+
+.lepljiva-navigacija{
+    position: fixed;
+    margin-top: 0;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    animation: lepnavAnimacija 0.5s linear;
+    transform-origin: top;
+    box-shadow: 1px 1px 3px #8e44ad;
+}
+
+.lepljiva-navigacija .navigacija{
+    margin-top: 10px;
+}
+
+.navigacija li , .lepljiva-navigacija li{
+    float: left;
+    margin-right: 30px;
+    height: 50px;
+    color: #8e44ad;
+}
+
+.navigacija li a:link, .navigacija li a:visited{
+    color: #fff;
+    padding: 8px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+    transition: color 0.5s,border 0.5s;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.navigacija li a:hover, .navigacija li a:active{
+    border-bottom: 2px solid #8e44ad;
+    color: #8e44ad;
+}
+
+.lepljiva-navigacija li a:link, .lepljiva-navigacija li a:visited{
+    color: black;
+    font-weight: normal;
+    line-height: 30px;
+    display: block;
+    padding-bottom: 13px;
+}
+
+.lepljiva-navigacija li a:hover{
+    border-bottom: 3px solid #8e44ad;
+    color: #8e44ad;
+}
+
+.lepljiva-navigacija .logo-slika{
+    display: block;
+    margin-top: 0px;
+}
+
+.mobilna-ikona{
+    color: #8e44ad;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transform-origin: top;
+    z-index: 9999;
+}
+
+
+.heroj-tekst{
+    position: absolute;
+    width: 1140px;
+    top: 45%;
+    left: 18%;
+    font-family: heroFont;
+    animation: heroAnimacija 2s linear;
+    transform-origin: left;
+}
+
+/* LINK VRATI SE GORE*/
+.vrati-se-gore{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    color: #8e44ad;
+    z-index: 9999;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.vrati-se-gore:hover{
+    cursor: pointer;
+}
+
+.js--vrati-se-gore{
+    opacity: 1;
+}
+
+/*----------------------------------*/
+/* SEKCIJA GALERIJA RADOVA - FOTORAMA */
+/*----------------------------------*/
+
+.sekcija-galerija-radova {
+    background-color: aliceblue;
+}
+
+.fotorama__wrap{
+    margin: auto;
+    border: 1px solid #8e44ad;
+}
+
+.fotorama__caption__wrap{
+    font-weight: bold;
+    color: #8e44ad;
+    padding-left: 100px;
+}
+
+/*----------------------------------*/
+/* SEKCIJA O MENI*/
+/*----------------------------------*/
+.sekcija-omeni{
+    background-color: aliceblue;
+}
+
+.omeni:first-child{
+    height: 400px;
+   text-align: right;
+    padding-right: 10px;
+}
+
+.omeni-slika{
+    width: 70%;
+    border-radius: 700px;
+    box-shadow: 2px 2px 30px #8e44ad;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.omeni:last-child{
+    padding: 35px 10px;
+    font-family: pisaniFont;
+    color: #8e44ad;
+}
+
+
+/*----------------------------------*/
+/* SEKCIJA USLUGE*/
+/*----------------------------------*/
+
+.sekcija-usluge{
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.usluga {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:  1px 1px 10px #8e44ad;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.usluga:hover{
+     box-shadow:  2px 2px 20px #8e44ad;
+}
+
+.usluga div {
+    padding:10px;
+    border-bottom: 3px solid #8e44ad;  
+}
+
+.usluga div:first-child{
+    background-color:  #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.usluga div:last-child{
+    border:0;
+}
+
+.usluga div:nth-child(2){
+    padding: 0;
+    height: 200px;
+}
+
+ .usluga-ikonica{
+    width: 40px;
+    float: left;
+    margin-right: 10px    
+}
+
+ .opis-usluge ul{
+    list-style-type:none;
+}
+
+.opis-usluge ul li{
+    margin-bottom: 5px;
+    font-size: 110%;
+}
+
+.opis-usluge ul li:before{
+    content: '• ';
+    color: #8e44ad;
+}
+
+.usluga:nth-child(1) div:nth-child(3) ul li{
+    margin-bottom: 23px;
+}
+
+.usluga:nth-child(2) div:nth-child(3) ul li{
+    margin-bottom: 10.5px;
+}
+
+.slika-usluge img{
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+/*----------------------------------*/
+/* SEKCIJA UTISCI KORISNIKA*/
+/*----------------------------------*/
+.sekcija-utisci{
+     background-image: linear-gradient(rgba(142, 68, 173,0.4),rgba(142, 68, 173,0.4)),url(../../vendori/css/cssslike/nails.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.h2-utisci{
+    text-shadow: -2px 0 #8e44ad, 0 2px #8e44ad, 2px 0 #8e44ad, 0 -2px #8e44ad;
+    color: white;
+}
+
+.musterija {
+    padding: 5px;
+    border-bottom: 3px solid #8e44ad;
+}
+
+blockquote{
+    font-style: italic;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 140%;
+    position: relative;
+}
+
+blockquote:before{
+    content: "\201C";
+    display: block;
+    font-size: 400%;
+    position: absolute;
+    left: -3px;
+    top:-5px;
+    text-shadow: -3px 0 #8e44ad, 0 3px #8e44ad, 3px 0 #8e44ad, 0 -3px #8e44ad;
+}
+
+
+cite{
+    font-size: 90%;
+    color: white;
+    font-style: normal;
+}
+
+cite img{
+    height: 60px;
+    border-radius: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+/*----------------------------------*/
+/* SEKCIJA MAPA i KONTAKT*/
+/*----------------------------------*/
+.sekcija-mapa-kontakt{
+    padding: 0;
+    height: 500px;
+    position: relative;
+}
+
+#map{
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    margin: 0;
+}
+
+.kontakt-forma{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background-color: aliceblue;
+    padding: 15px 50px;
+}
+
+form{
+    width: 100%;
+}
+
+form div{
+    padding: 5px 0;
+}
+
+form div input[type="text"],textarea{
+    width: 100%;
+    padding: 10px 10px;
+    color: #8e44ad;
+    border: 2px solid #8e44ad; 
+}
+
+form div input[type="text"]:hover,textarea:hover{
+    box-shadow: 1px 1px 5px #8e44ad;
+}
+
+form div input[type="text"]:active,textarea:active{
+    box-shadow: 1px 1px 5px #8e44ad;
+    border: 2px solid #8e44ad; 
+}
+
+form .posalji{
+    width: 50%;
+    padding: 10px 0;
+    background-color: #8e44ad;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    font-weight: 80%;
+}
+
+.posalji:hover{
+    box-shadow: 1px 1px 5px #8e44ad;
+}
+
+form div:last-child{
+    text-align: center;
+}
+
+/*LOADER*/
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url("../../vendori/slike/Preloader_10.gif") center no-repeat #fff;
+}
+
+/*----------------------------------*/
+/* FOOTER*/
+/*----------------------------------*/
+footer{
+    width: 100%;;
+    height: 200px;
+    background-color: rgb(46, 34, 34);
+}
+
+footer ul{
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+footer ul li{
+    float: left;
+    margin-left: 20px;
+}
+
+footer ul li a:link, footer ul li a:visited{
+    text-decoration: none;
+    color: rgba(142, 68, 173, 0.69);
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+footer ul li a:hover, a:active{
+    color: rgb(142, 68, 173);
+}
+
+footer .ikonice li{
+    float: right;
+}
+
+footer .ikonice .ikonica-facebook:hover{
+    color: #3b5998;
+    transform: rotateY(360deg)
+}
+
+footer .ikonice .ikonica-instagram:hover{
+    color: #125688;
+}
+
+.copyright{
+    margin-top: 70px;
+    color: white;
+    text-align: center;
+}
+
+.copyright a:link, .copyright a:visited{
+    color: white;
+    padding: 05px 0;
+    font-weight: bolder;
+    text-decoration: none;
+    transition: color 0.3s;
+    color: rgb(142, 68, 173);
+    border-bottom: 2px solid #8e44ad;
+    border-top: 2px solid #8e44ad;
+}
+
+.copyright a:hover , .copyright a.active{
+     color: rgb(142, 68, 173);
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+.copyright a:after{
+    padding-bottom: 5px;
+}
+
+/*----------------------------------*/
+/* ANIMACIJE*/
+/*----------------------------------*/
+@keyframes heroAnimacija{
+     0% { opacity: 0; animation-timing-function: ease-in;}
+   25% { opacity: 0.25; }
+    50% { opacity: 0.5;}
+    75% { opacity: 0.75 }
+    100% { opacity: 1 }
+}
+@keyframes dugmeAnimacija{
+     0% { opacity: 0; animation-timing-function: ease-in; }
+   25% { opacity: 0.25;}
+    50% { opacity: 0.5;}
+    75% { opacity: 0.75 }
+    100% { opacity: 1 }
+}
+
+@keyframes navAnimacija{
+     0% { opacity: 0; animation-timing-function: ease-in; }
+   25% { opacity: 0.25;}
+    50% { opacity: 0.5;}
+    75% { opacity: 0.75 }
+    100% { opacity: 1 }
+}
+
+@keyframes lepnavAnimacija{
+     0% { opacity: 0; animation-timing-function: ease-in; }
+   25% { opacity: 0.25;}
+    50% { opacity: 0.5;}
+    75% { opacity: 0.75 }
+    100% { opacity: 1 }
+}
+
+.js--anim-omeni-slika, .js--anim-usluga-div-1, .js--anim-usluga-div-2, .js--anim-usluga-div-3, .js--anim-galerija, .js--anim-musterija-1,.js--anim-musterija-2, .js--anim-musterija-3 {
+    opacity: 0;
+    animation-duration: 1.3s;
+}
+
+.js--anim-omeni-slika .animated, .js--anim-usluga-div-1 .animated, .js--anim-usluga-div-2 .animated, .js--anim-usluga-div-3 .animated, .js--anim-galerija .animated, .js--anim-musterija-1 .animated, .js--anim-musterija-2 .animated, .js--anim-musterija-3 .animated{
+    opacity: 1;
+}
+
+
