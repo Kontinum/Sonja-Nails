@@ -1,1 +1,1 @@
-# Sonja Nails project
+# Sonja Nails
